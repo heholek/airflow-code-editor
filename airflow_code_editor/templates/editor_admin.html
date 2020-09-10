@@ -1,25 +1,17 @@
-{% extends "airflow/master.html" %}
-{% block title %}{% endblock %}
-
-{% block head_css %}
-{{ super() }}
+{% import 'admin/static.html' as admin_static with context %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DAGs Code Editor</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="" />
+    <link href="{{ admin_static.url(filename='bootstrap/bootstrap3/swatch/{swatch}/bootstrap.min.css'.format(swatch=config.get('FLASK_ADMIN_SWATCH', 'default')), v='3.3.5') }}" rel="stylesheet">
 {% include "editor_head.html" %}
-{% endblock %}
-
-{% block page_body %}
-<div class="container">
-  {% block messages %}
-  {{ layout.messages() }}
-  {% endblock %}
-  {% set render_ctx = h.resolve_ctx() %}
-  {% block body %}
-	{{ super() }}
-	{% include "editor_body.html" %}
-  {% endblock %}
-</div>
-{% endblock %}
-
-{% block tail %}
-{{ super() }}
+  </head>
+  <body>
+{% include "editor_body.html" %}
+  <script src="{{ admin_static.url(filename='vendor/jquery.min.js', v='3.3.1') }}" type="text/javascript"></script>
+  <script src="{{ admin_static.url(filename='bootstrap/bootstrap3/js/bootstrap.min.js', v='3.3.5') }}" type="text/javascript"></script>
 {% include "editor_tail.html" %}
-{% endblock %}
+  </body>
+</html>

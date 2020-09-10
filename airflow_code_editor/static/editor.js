@@ -4,7 +4,8 @@ jQuery(document).ready(function(){
     	lineNumbers: true,
         mode: 'python',
         foldGutter: true,
-        gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
+        gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+        extraKeys: {"Alt-F": "findPersistent"}
     });
     window.editor.on('change', function(editor) {
         document.forms.editor_form.code.value = editor.getValue();

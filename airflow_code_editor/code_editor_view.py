@@ -68,8 +68,6 @@ class AbstractCodeEditorView(object):
             with open(fullpath, 'w') as f:
                 f.write(code)
                 f.write('\n')
-            flash('File [{path}] saved successfully'.format(path=path),
-                  'success')
         except Exception as ex:
             logging.error(ex)
             flash('Error saving file [{path}]'.format(path=path),

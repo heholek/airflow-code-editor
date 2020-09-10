@@ -1,19 +1,16 @@
-{% extends "airflow/master.html" %}
-
-{% block navbar %}
-{% endblock %}
-
-{% block head_css %}
-{{ super() }}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DAGs Code Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='appbuilder/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='appbuilder/css/font-awesome.min.css') }}" />
 {% include "editor_head.html" %}
-{% endblock %}
-
-{% block content %}
-{{ super() }}
+  </head>
+  <body>
 {% include "editor_body.html" %}
-{% endblock %}
-
-{% block tail %}
-{{ super() }}
+  <script src="{{ url_for('static', filename='appbuilder/js/jquery-latest.js') }}"></script>
 {% include "editor_tail.html" %}
-{% endblock %}
+  </body>
+</html>
